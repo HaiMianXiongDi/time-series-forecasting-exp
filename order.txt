@@ -1,0 +1,123 @@
+
+
+./exchange_rate.sh
+
+./electricity.sh
+
+./electricityLPU.sh
+
+cd /root/LPU-Net-main
+
+conda activate transformer-env
+
+chmod +x exchange_rate.sh
+
+chmod +x electricity.sh
+
+chmod +x electricityLPU.sh
+
+export NUMEXPR_MAX_THREADS=200
+
+===============================
+cd /root/LPU-Net-main
+export NUMEXPR_MAX_THREADS=200
+chmod +x electricityLPU.sh
+./electricityLPU.sh
+
+
+cd /root/LPU-Net-main
+export NUMEXPR_MAX_THREADS=200
+chmod +x electricity.sh
+./electricity.sh
+
+
+
+cd /root/LPU-Net-main
+./electricitycopy.sh
+
+chmod +x electricitycopycopy.sh
+./electricitycopycopy.sh
+
+./all_in_one.sh
+
+cd /root/LPU-Net-main
+./electricity720.sh
+
+
+cd /root/LPU-Net-main
+export NUMEXPR_MAX_THREADS=200
+chmod +x exchange_rate.sh
+./exchange_rate.sh
+
+
+cd /root/LPU-Net-main
+chmod +x traffic.sh
+./traffic.sh
+
+
+conda deactivate
+conda activate transformer-env
+
+
+
+
+
+
+cd /root/LPU-Net-main
+chmod +x ili.sh
+./ili.sh
+
+
+
+
+
+
+
+
+
+
+
+cd /root/LPU-Net-main
+chmod +x etth1.sh
+./etth1.sh
+./etth1copy.sh
+
+cd /root/LPU-Net-main
+chmod +x etth2.sh
+./etth2.sh
+
+
+
+cd /root/LPU-Net-main
+chmod +x ettm1.sh
+./ettm1.sh
+
+./ettm1copy.sh
+
+
+
+
+
+
+cd /root/LPU-Net-main
+chmod +x ettm2.sh
+./ettm2.sh
+
+
+cd /root/LPU-Net-main
+chmod +x weather.sh
+./weather.sh
+
+
+cd /root/LPU-Net-main
+chmod +x weather.sh
+./weathercopy.sh
+
+
+cd /root/LPU-Net-main
+chmod +x weatherefe.sh
+./weatherefe.sh
+
+
+cd /root/LPU-Net-main
+./xiaorongEXP.sh
