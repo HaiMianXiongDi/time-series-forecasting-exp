@@ -69,6 +69,9 @@ class Model(nn.Module):
         self.input_len = self.original_input_len  # 预测器仍然接收原始长度
         self.predictor = Predictor_test(self.input_len, self.out_len)
 
+        # 调试标志：是否在预测阶段打印 seq_level 统计信息
+        self.debug_seq_info = getattr(configs, 'debug_seq_info', 0)
+
     def forward(self, x):
         # Step-0 归一化 & 维度整理
         x_norm = self.revin_layer(x, 'norm')        # [B, L, C]
@@ -81,6 +84,14 @@ class Model(nn.Module):
             logging.info(f"Interpolating down to {down_len} steps, then back to {self.original_input_len}")
             seq_level = F.interpolate(seq_level, size=down_len, mode='linear', align_corners=False)
             seq_level = F.interpolate(seq_level, size=self.original_input_len, mode='linear', align_corners=False)
+
+        # 如果在评估阶段需要输出统计信息
+        if (not self.training) and self.debug_seq_info:
+            mean_val = seq_level.mean().item()
+            var_val = seq_level.var().item()
+            msg = f"seq_level mean={mean_val:.6f}, var={var_val:.6f}"
+            logging.info(msg)
+            print(msg)
 
         # Step-2 预测
         final_prediction = self.predictor(seq_level)         # [B, C, out_len]

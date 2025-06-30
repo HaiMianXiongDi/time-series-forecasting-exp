@@ -238,6 +238,9 @@ class Exp_Main(Exp_Basic):
             os.makedirs(folder_path)
 
         self.model.eval()
+        # 在测试阶段设置调试标志
+        if hasattr(self.model, 'debug_seq_info'):
+            self.model.debug_seq_info = self.args.debug_seq_info
         test_flag = False
         tets_num = 0
         test_time = 0
@@ -352,6 +355,8 @@ class Exp_Main(Exp_Basic):
         preds = []
 
         self.model.eval()
+        if hasattr(self.model, 'debug_seq_info'):
+            self.model.debug_seq_info = self.args.debug_seq_info
         with torch.no_grad():
             for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(pred_loader):
                 batch_x = batch_x.float().to(self.device)
