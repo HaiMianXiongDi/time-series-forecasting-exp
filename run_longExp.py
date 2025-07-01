@@ -132,6 +132,10 @@ if __name__ == '__main__':
     parser.add_argument('--exp2', type=int, default=2, help='experiment parameter 2')
     parser.add_argument('--exp3', type=int, default=1, help='experiment parameter 3')
 
+    # debug option
+    parser.add_argument('--debug_seq_info', type=int, default=0,
+                        help='output seq_level statistics during prediction')
+
     
 
     args = parser.parse_args()
